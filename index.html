@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Regex Explanation Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">A Deep Dive Into the Email Regular Expression, Otherwise Known as a Regex!</h1>
+        <h2 class="text-center">/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/</h2>
+        
+        <section class="mt-4">
+            <h3>1. <code>^</code> (Start of String)</h3>
+            <p>This symbol asserts the position at the start of the string. It ensures that the regex matches from the beginning of the input.</p>
+        </section>
+
+        <section class="mt-4">
+            <h3>2. <code>([a-z0-9_\.-]+)</code> (Username Part)</h3>
+            <p>This part matches the username portion of the email, which can consist of:</p>
+            <ul>
+                <li><code>[a-z]</code>: Any lowercase letter from 'a' to 'z'</li>
+                <li><code>[0-9]</code>: Any digit from 0 to 9</li>
+                <li><code>_</code>: An underscore</li>
+                <li><code>\.</code>: A dot (escaped with a backslash)</li>
+                <li><code>-</code>: A hyphen</li>
+            </ul>
+            <p>The <code>+</code> quantifier ensures that this part appears one or more times.</p>
+        </section>
+
+        <section class="mt-4">
+            <h3>3. <code>@</code> (At Symbol)</h3>
+            <p>This is a literal match for the "@" symbol, which separates the username from the domain in an email address.</p>
+        </section>
+
+        <section class="mt-4">
+            <h3>4. <code>([\da-z\.-]+)</code> (Domain Part)</h3>
+            <p>This part matches the domain name, allowing:</p>
+            <ul>
+                <li><code>\d</code>: Any digit (0-9)</li>
+                <li><code>[a-z]</code>: Any lowercase letter from 'a' to 'z'</li>
+                <li><code>\.</code>: A dot</li>
+                <li><code>-</code>: A hyphen</li>
+            </ul>
+            <p>The <code>+</code> quantifier ensures that this part appears one or more times.</p>
+        </section>
+
+        <section class="mt-4">
+            <h3>5. <code>\.</code> (Dot Literal)</h3>
+            <p>This is a literal match for the dot that separates the domain name from the top-level domain (TLD).</p>
+        </section>
+
+        <section class="mt-4">
+            <h3>6. <code>([a-z\.]{2,6})</code> (Top-Level Domain Part)</h3>
+            <p>This part matches the top-level domain (TLD), allowing:</p>
+            <ul>
+                <li><code>[a-z]</code>: Any lowercase letter from 'a' to 'z'</li>
+                <li><code>\.</code>: A dot (optional)</li>
+            </ul>
+            <p>The <code>{2,6}</code> quantifier ensures that the TLD has between 2 and 6 characters (e.g., "com", "org", "co.uk").</p>
+        </section>
+
+        <section class="mt-4">
+            <h3>7. <code>$</code> (End of String)</h3>
+            <p>This symbol asserts the position at the end of the string, ensuring that the regex matches until the very end of the input.</p>
+        </section>
+    </div>
+</body>
+</html>
